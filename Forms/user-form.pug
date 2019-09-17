@@ -1,0 +1,23 @@
+form.d-flex.flex-column.justify-content-between(method='POST')
+  .form-group
+    label(for='bioTextArea') Bio textarea
+    textarea.form-control#bioTextArea(rows='4', placeholder='tell us about your, likes, values superpowers etc')
+  .form-group
+    label(for) Profession
+    input.form-control#profession(type='text', placeholder='Enter your profession')
+  .form-group
+    label(for) Affiliation
+    input.form-control#affiliation(type='text', placeholder='Freelancer/Company/Organisation')
+  .form-group
+    label(for='AffiliationDescription') Bio
+    textarea.form-control#bio(rows='5', placeholder='tell us highlights about your work')
+  .form-row.align-items-center
+    label(for='start') Start date:
+    input#start(type='date', name='trip-start', value='2018-07-22', min='2000-01-01', max='2019-12-31')
+    label(for='start') End date:
+    input#end(type='date', name='trip-start', value='2018-07-22', min='2000-01-01', max='2019-12-31')
+  .form-group
+    .form-check
+      input.form-check-input#iStillWorkHere(type='checkbox')
+      label.form-check-label(for='defaultCheck1').
+        I still work here
