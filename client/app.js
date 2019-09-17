@@ -87,7 +87,8 @@ app.use(session({
     maxAge: 1209600000
   }, // two weeks in milliseconds
   store: new MongoStore({
-    url: process.env.MONGODB_URI,
+    url: process.env.NODE_ENV === 'development' ?
+      process.env.MONGODB_URI : process.env.MONGODB_PROD,
     autoReconnect: true,
   })
 }));
