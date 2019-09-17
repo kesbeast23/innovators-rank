@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 @import "themes/default/variables";
 
 @import "node_modules/bootstrap/scss/bootstrap";
@@ -30,7 +32,8 @@ footer {
   height: 45px;
   line-height: 45px;
 
-  p, ul {
+  p,
+  ul {
     margin-bottom: 0;
   }
 }
@@ -51,14 +54,14 @@ textarea {
   margin: -15px 15px -15px;
 }
 
-.navbar{
+.navbar {
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 20px;
   display: block;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-size: 18px;
   float: left;
 }
@@ -85,10 +88,11 @@ textarea {
 */
 /* Styles in sm disposition and up */
 @media (min-width: 576px) and (max-width: 767px) {
+
   /* Solves bs4 bug */
-  .navbar-expand-md > .container,
-  .navbar-expand-lg > .container,
-  .navbar-expand-xl > .container {
+  .navbar-expand-md>.container,
+  .navbar-expand-lg>.container,
+  .navbar-expand-xl>.container {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
@@ -96,9 +100,10 @@ textarea {
 
 /* Styles in md disposition and up */
 @media (min-width: 768px) and (max-width: 991px) {
+
   /* Solves bs4 bug */
-  .navbar-expand-lg > .container,
-  .navbar-expand-xl > .container {
+  .navbar-expand-lg>.container,
+  .navbar-expand-xl>.container {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
@@ -106,8 +111,9 @@ textarea {
 
 /* Styles in lg disposition and up */
 @media (min-width: 992px) and (max-width: 1199px) {
+
   /* Solves bs4 bug */
-  .navbar-expand-xl > .container {
+  .navbar-expand-xl>.container {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
@@ -153,7 +159,8 @@ textarea {
   background-color: #fffc00;
   color: #000 !important;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background-color: #f1ef00;
   }
 }

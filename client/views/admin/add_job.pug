@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+    .pb-2.mt-2.mb-4.border-bottom
+        h3 Add Job Form
+
+    form(method='POST')
+        input(type='hidden', name='_csrf', value=_csrf)
+        //- if (user.isAdmin)
+        .form-group.row
+            label(class='col-md-2 col-form-label font-weight-bold', for='name') Name of the project
+            .col-md-8
+                input.form-control(type='text', name='name', id='name', autocomplete='name', autofocus=true)
+        .form-group.row
+            label(class='col-md-2 col-form-label font-weight-bold', for='links') Add any external links
+            .col-md-8
+                input.form-control(type='text', name='links', id='links', autocomplete='links')
+        .form-group.row
+            label(class='col-md-2 col-form-label font-weight-bold', for='applyBy') Apply by
+            .col-md-8
+                input.form-control(type='date', name='applyBy', id='applyBy')
+        .form-group.row
+            label(class='col-md-2 col-form-label font-weight-bold', for='description') Please provide a description for your project
+            .col-md-8
+                textarea.form-control(name='description', id='description', rows='7')
+        .form-group.row
+            label(class='col-md-2 col-form-label font-weight-bold', for='attachment') Add attachment
+            .col-md-8
+                input(type='file', name='attachment', id='attachment')
+                br
+                br
+                p Attach any images or documents that might be helpful in explaining your project brief here.
+            
+        .form-group
+            .offset-md-2.col-md-8.p-1
+                button.btn.btn-primary(type='submit')
+                    i.fa.fa-paper-plane.fa-sm
+                    | Submit

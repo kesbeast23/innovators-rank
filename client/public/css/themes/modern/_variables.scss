@@ -19,7 +19,9 @@ $brand-info: #5bc0dd;
 // -------------------------
 
 $font-size-base: 1rem;
-$headings-font-family: 'Montserrat', sans-serif;
+$headings-font-family: "Lato",
+'Montserrat',
+sans-serif;
 $headings-font-weight: 700;
 $text-color: $gray-darker;
 $link-color: $brand-primary;
@@ -58,7 +60,7 @@ $state-danger-bg: $brand-danger;
 // -------------------------
 
 $navbar-height: 50px;
-$navbar-default-bg: rgba(255,255,255,0.95);
+$navbar-default-bg: rgba(255, 255, 255, 0.95);
 $navbar-default-link-color: $gray-darker;
 $navbar-default-link-active-color: $brand-primary;
 $navbar-default-link-active-bg: transparent;

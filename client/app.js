@@ -34,6 +34,7 @@ dotenv.config({
  * Controllers (route handlers).
  */
 const homeController = require('./controllers/home');
+const jobsController = require("./controllers/jobs");
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
@@ -54,8 +55,9 @@ const app = express();
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useNewUrlParser', true);
+console.log(process.env.NODE_ENV);
 mongoose.connect(process.env.NODE_ENV === 'development' ?
-  process.env.MONGODB_URI : process.env.MONGODB_PROD);
+  process.env.MONGODB_PROD : process.env.MONGODB_URI);
 mongoose.connection.on('error', (err) => {
   console.error(err);
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
@@ -89,7 +91,7 @@ app.use(session({
   }, // two weeks in milliseconds
   store: new MongoStore({
     url: process.env.NODE_ENV === 'development' ?
-      process.env.MONGODB_URI : process.env.MONGODB_PROD,
+      process.env.MONGODB_PROD : process.env.MONGODB_URI,
     autoReconnect: true,
   })
 }));
@@ -166,6 +168,9 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+app.get('/jobs', jobsController.getJobs);
+app.get('/jobs/:id', jobsController.getJob);
+app.get('/jobs/add/new', jobsController.getAddJob);
 
 /**
  * API examples routes.
