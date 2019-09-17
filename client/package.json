@@ -1,19 +1,20 @@
 {
   "name": "hackathon-starter",
   "version": "5.2.0",
-  "description": "A boilerplate for Node.js web applications",
+  "description": "Project Strawberry",
   "repository": {
     "type": "git",
     "url": "https://github.com/sahat/hackathon-starter.git"
   },
   "license": "MIT",
-  "author": "Sahat Yalkabov",
+  "author": "Team Strawberry",
   "contributors": [
     "Yashar Fakhari (https://github.com/YasharF)"
   ],
   "scripts": {
     "postinstall": "npm rebuild node-sass",
-    "start": "nodemon app.js",
+    "debug": "nodemon app.js",
+    "start": "node app.js",
     "test": "nyc mocha --timeout=10000 --exit",
     "lint": "eslint \"**/*.js\""
   },
