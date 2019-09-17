@@ -1,0 +1,23 @@
+form.d-flex.flex-column.justify-content-between(method='POST')
+  .form-group
+    label(for='OrganisationName') Organisation/Company Name
+    input.form-control#orgName(type='text', placeholder='Debswana')
+  .form-group
+    label(for='OrgIndustry') Industry
+    input.form-control#orgIndustry(type='text', placeholder='Mining')
+  .form-group
+    label(for='url') Organisation Website
+    input#orgWebsiteUrl(type='url', name='url', placeholder='https://example.com', pattern='https://.*', size='30', required)
+  .form-group
+    label(for='url') Organisation Facebook Page
+    input#orgFacebookUrl(type='url', name='url', placeholder='https://facebook.com', pattern='https://.*', size='30', required)
+  .form-group
+    label(for='url') Organisation Linkedin
+    input#orgLinkedinUrl(type='url', name='url', placeholder='https://linkedin.com', pattern='https://.*', size='30', required)
+  .form-group
+    label(for) Description
+    textarea.form-control#orgDescription(rows='3', placeholder='Company pitch, mission')
+  .form-group
+    label(for='orgContactEmail') Company Contact Email
+    input.form-control#orgContactEmail(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+    small#emailHelp.form-text.text-muted This will be used to interract with people on this platform
