@@ -30,11 +30,7 @@ const userSchema = new mongoose.Schema({
     location: String,
     website: String,
     profession: String,
-    affiliation: String,
-    picture: String,
-    phone: String,
-    technologies: Array,
-    rank: String
+    picture: String
   }
 }, {
   timestamps: true
