@@ -1,13 +1,16 @@
 const {
   promisify
-} = require('util');
-const crypto = require('crypto');
-const nodemailer = require('nodemailer');
-const passport = require('passport');
-const _ = require('lodash');
-const validator = require('validator');
-const mailChecker = require('mailchecker');
-const User = require('../models/User');
+} = require('util'),
+  crypto = require('crypto'),
+  nodemailer = require('nodemailer'),
+  passport = require('passport'),
+  _ = require('lodash'),
+  validator = require('validator'),
+  mailChecker = require('mailchecker'),
+  User = require('../models/User'),
+  mongoose = require('mongoose'),
+  ObjectId = mongoose.Types.ObjectId,
+  Job = require("../models/developers/Job");
 
 const randomBytesAsync = promisify(crypto.randomBytes);
 
@@ -153,9 +156,18 @@ exports.postSignup = (req, res, next) => {
  * Profile page.
  */
 exports.getAccount = (req, res) => {
-  res.render('account/profile', {
-    title: 'Account Management'
-  });
+  Job.find({
+    userId: new ObjectId(req.user._id)
+  }).sort({
+    createdAt: -1
+  }).exec((err, jobs) => {
+    if (err) return err;
+
+    res.render('account/profile', {
+      title: 'Account Management',
+      jobs
+    });
+  })
 };
 
 /**

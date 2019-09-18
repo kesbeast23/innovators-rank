@@ -1,0 +1,12 @@
+button.d-flex.ml-auto.btn.btn-primary(type='button', data-toggle='modal', data-target='#addWorkedJobsModal')
+    | Add Job
+.pb-2.mt-2.mb-4.border-bottom
+
+.row
+    if jobs
+        each job in jobs
+            .col-md-6
+                .card.p-3.m-4
+                    h5.text-primary.font-weight-bold=job.title
+                    h6.text-secondary.text-uppercase=job.company
+                    p.mb-0=job.location

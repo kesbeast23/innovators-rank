@@ -37,6 +37,7 @@ const homeController = require('./controllers/home');
 const jobsController = require("./controllers/jobs");
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
+const ranksController = require("./controllers/ranks");
 const contactController = require('./controllers/contact');
 
 /**
@@ -172,6 +173,7 @@ app.get('/jobs', jobsController.getJobs);
 app.post('/jobs', jobsController.postJob);
 app.get('/jobs/:id', jobsController.getJob);
 app.get('/jobs/add/new', jobsController.getAddJob);
+app.get('/ranks', ranksController.getRankings);
 
 /**
  * API examples routes.

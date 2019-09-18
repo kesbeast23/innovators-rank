@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1.mb-5.font-weight-bold Rankings
+    if users
+        table.w-100.table.table-striped
+            thead.thead-dark
+                tr
+                    th.text-uppercase User
+                    th.text-uppercase Rank
+            each rank in users
+                tr
+                    td #{typeof rank.profile.name != "undefined"? rank.profile.name : rank.email}
+                    td=rank.rank.score

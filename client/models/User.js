@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
+const ObjectId = mongoose.Schema.Types.ObjectId;
+const Rank = require("./Rank");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -12,6 +14,13 @@ const userSchema = new mongoose.Schema({
   passwordResetExpires: Date,
   emailVerificationToken: String,
   emailVerified: Boolean,
+
+  rank: {
+    score: {
+      type: Number,
+      default: 0
+    }
+  },
 
   // snapchat: String,
   facebook: String,
@@ -42,8 +51,9 @@ const userSchema = new mongoose.Schema({
 /**
  * Password hash middleware.
  */
-userSchema.pre('save', function save(next) {
+userSchema.pre('save', async function save(next) {
   const user = this;
+
   if (!user.isModified('password')) {
     return next();
   }
