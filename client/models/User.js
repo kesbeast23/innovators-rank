@@ -44,7 +44,8 @@ const userSchema = new mongoose.Schema({
     picture: String,
     bio: String,
     profession: String,
-    affiliation: String
+    affiliation: String,
+    rank: Number
   }
 }, {
   timestamps: true

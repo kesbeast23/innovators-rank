@@ -1,6 +1,7 @@
 const Job = require("../models/developers/Job"),
     mongoose = require('mongoose'),
-    validator = require('validator'),
+    user = require("../models/User")
+validator = require('validator'),
     axios = require('axios'),
     JobOffers = require("../models/Offer"),
     ObjectId = mongoose.Types.ObjectId;
@@ -81,11 +82,14 @@ exports.postJob = (req, res, next) => {
         });
         res.redirect("/account");
 
-        axios.post('http://locahost:6666', {
+        axios.post('http://locahost:5000/predict', {
             technologies: job.technologies
         }).then(function (response) {
-            job.update({
-                "competency": response
+            //job.update({"rank": response});
+            User.update({
+                _id: req.user._id
+            }, {
+                "rank": response
             });
         }).catch(function (error) {
             req.flash('erros', {

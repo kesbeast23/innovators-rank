@@ -4,7 +4,7 @@
         form.modal-content(method="post", action="/job_offer")
             input(type='hidden', name='_csrf', value=_csrf)
             .modal-header
-                h5.modal-title(id="addWorkedJobsModalLabel") Add Your Work Experience
+                h5.modal-title(id="addWorkedJobsModalLabel") Add A Job Listing
                 button.close(type='button', data-dismiss='modal', aria-label='Close')
                     span(aria-hidden='true') &times;
             .modal-body
@@ -42,7 +42,7 @@
                 .form-group.row
                     label.col-md-3.col-form-label.font-weight-bold.text-right(for='jobDescription') Job Description
                     .col-md-7
-                        textarea.form-control#bio(name="jobDescription", rows='4', placeholder='Break up the problem into manageble tasks')
+                        textarea.form-control#bio(name="jobDescription", rows='4', placeholder='Describe the listing as thoroughly as possible')
 
                 .form-group.row
                     label.col-md-3.col-form-label.font-weight-bold.text-right(for='projectEnd') Application Deadline:

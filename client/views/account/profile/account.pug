@@ -50,7 +50,7 @@ form(action='/account/profile', method='POST')
 		.col-md-7
 			textarea.form-control#bio(name="bio", rows='4', placeholder='Tell us about your, likes, values or superpowers etc') #{user.profile.bio}
 	.form-group.row
-		label.col-md-3.col-form-label.font-weight-bold.text-right(for="profession") Profession
+		label.col-md-3.col-form-label.font-weight-bold.text-right(for="profession") Occupation
 		.col-md-7
 			select.form-control#profession(name="profession")
 				option(selected=user.profile.profession=="Student") Student
