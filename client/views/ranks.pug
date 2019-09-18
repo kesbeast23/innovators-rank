@@ -10,5 +10,5 @@ block content
                     th.text-uppercase Rank
             each rank in users
                 tr
-                    td #{typeof rank.profile.name != "undefined"? rank.profile.name : rank.email}
+                    td #{typeof rank.profile.name != "undefined" && rank.profile.name.trim() != ""? rank.profile.name : rank.email}
                     td=rank.rank.score

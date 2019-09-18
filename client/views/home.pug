@@ -3,3 +3,5 @@ extends layout
 block content
   if !user
     include partials/home/not_logged_in
+  else 
+    include partials/home/logged_in

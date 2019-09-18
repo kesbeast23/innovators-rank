@@ -33,6 +33,8 @@ const userSchema = new mongoose.Schema({
   // quickbooks: String,
   tokens: Array,
 
+  accountType: String,
+
   profile: {
     name: String,
     gender: String,

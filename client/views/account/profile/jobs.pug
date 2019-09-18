@@ -7,6 +7,13 @@ button.d-flex.ml-auto.btn.btn-primary(type='button', data-toggle='modal', data-t
         each job in jobs
             .col-md-6
                 .card.p-3.m-4
+                    p.text-secondary.text-uppercase.small.mb-0 Title:
                     h5.text-primary.font-weight-bold=job.title
-                    h6.text-secondary.text-uppercase=job.company
-                    p.mb-0=job.location
+                    p.text-secondary.text-uppercase.small.mb-0 Company:
+                    h6.mb-3=job.company
+                    p.text-secondary.text-uppercase.small.mb-0 Location:
+                    p.mb-3=job.location
+                    p.mb-0 
+                        span.text-secondary.text-uppercase.small Joined: 
+                        br
+                        b #{job.projectDates.projectStart} - #{job.stillWorkHere?"Currently Working Here":job.projectDates.project} 
