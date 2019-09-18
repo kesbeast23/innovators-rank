@@ -49,9 +49,9 @@ block content
       .col-sm-4
         img(src=user.gravatar(), class='profile', width='100', height='100')
     .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='bioTextArea') Your Bio
+      label.col-md-3.col-form-label.font-weight-bold.text-right(for='bio') Your Bio
       .col-md-7
-        textarea.form-control#bioTextArea(name="bio", value=user.profile.bio, rows='4', placeholder='Tell us about your, likes, values or superpowers etc')
+        textarea.form-control#bio(name="bio", value=user.profile.bio rows='4', placeholder='Tell us about your, likes, values or superpowers etc')
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for="profession") Profession
       .col-md-7
@@ -62,7 +62,7 @@ block content
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for) Affiliation
       .col-md-7
-        input.form-control#affiliation(name="affiliation", value=user.profile.affiliation type='text', placeholder='Freelancer/Company/Organisation')
+        input.form-control#affiliation(name="affiliation", value=user.profile.affiliation type='text', placeholder='Freelancer/Name of Company or Organisation')
     //- .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='AffiliationDescription') Bio
       .col-md-7
