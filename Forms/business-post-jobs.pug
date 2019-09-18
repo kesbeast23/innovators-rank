@@ -1,16 +1,16 @@
 form.d-flex.flex-column.justify-content-between(method='POST')
   .form-group
     label(for='jobTitle') Job Title
-    input.form-control#jobTitle(type='text', placeholder='Project X')
+    input.form-control#jobTitle(type='text', placeholder='Project X' name="jobTitle")
   .form-group
     label(for='jobDescription') Job Description
-    input#jobDescription(type='text', placeholder='Software Developer')
+    input#jobDescription(type='text', placeholder='Software Developer' name="jobDescription")
   .form-group
     label(for) Company/Organisation 
-    input#orgName(type='text', placeholder='Debswana')
+    input#orgName(type='text', placeholder='Debswana' name="organisation")
   .form-inline
     label.my-1.mr-2(for='techStacks') Skills Required
-    select.custom-select.my-1.mr-sm-2#techStack(multiple)
+    select.custom-select.my-1.mr-sm-2#techStack(name="techStack" multiple)
       option(selected) Nodejs
       option(value='1') Flask
       option(value='2') Tensorflow
@@ -24,10 +24,10 @@ form.d-flex.flex-column.justify-content-between(method='POST')
       option(value='10') No Idea
   .form-group
     label(for) Problem Specification
-    textarea.form-control#orgName(rows='4', placeholder='break down the problem and outline the major challenges you want solved')
+    textarea.form-control#orgName(rows='4', placeholder='break down the problem and outline the major challenges you want solved' name="problemSpecification")
   .form-group
-    label.my-1.mr-2(for='techStacks') Sallary
-    select.custom-select.my-1.mr-sm-2#teckStack
+    label.my-1.mr-2(for='sallary') Sallary
+    select.custom-select.my-1.mr-sm-2#sallary(name="sallary")
       option(selected) Generous
       option(value='1') Competitive
       option(value='2') Negotiable
