@@ -1,4 +1,4 @@
-const Job = require("../models/Job"),
+const Offer = require("../models/offer"),
     mongoose = require('mongoose'),
     validator = require('validator'),
     axios = require('axios');
@@ -6,13 +6,13 @@ const Job = require("../models/Job"),
 
 exports.getAddJob = (req, res) => {
     res.render('/job_offer', {
-        title: 'Add Job'
+        title: 'Add Offer'
     });
 };
 
 exports.postOffer = (req, res, next)  => {
 
-    const offer = new Job({
+    const offer = new Offer({
         title: req.body.titleAW,
         name: new ObjectId(req.body.jobName),
         client: req.body.companyAW,
