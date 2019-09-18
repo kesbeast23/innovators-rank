@@ -174,11 +174,8 @@ app.get('/jobs', jobsController.getJobs);
 app.post('/jobs', jobsController.postJob);
 app.get('/jobs/:id', jobsController.getJob);
 app.get('/jobs/add/new', jobsController.getAddJob);
-<<<<<<< HEAD
 app.get('/ranks', ranksController.getRankings);
-=======
 app.post('/job_offer', jobOfferController.postOffer);
->>>>>>> added job offer form
 
 /**
  * API examples routes.

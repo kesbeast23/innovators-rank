@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
-const jobSchema = new mongoose.Schema({
+const offerSchema = new mongoose.Schema({
     name: {
         type: String,
         unique: true
@@ -21,6 +21,6 @@ const jobSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const Job = mongoose.model('Job', jobSchema);
+const Offer = mongoose.model('Offer', offerSchema);
 
-module.exports = Job;
+module.exports = Offer;

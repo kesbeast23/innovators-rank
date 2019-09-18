@@ -14,7 +14,7 @@ exports.postOffer = (req, res, next)  => {
 
     const offer = new Offer({
         title: req.body.titleAW,
-        name: new ObjectId(req.body.jobName),
+        name: req.body.jobName,
         client: req.body.companyAW,
         industry: req.body.industry,
         description: req.body.jobDescription,
