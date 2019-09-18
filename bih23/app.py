@@ -1,9 +1,15 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+
+
 
 @app.route('/')
 def home():
@@ -14,11 +20,37 @@ def predict():
     '''
      this is where rendering results on HTML GUI
     '''
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+        # Add the Data using pandas
+    Corpus = pd.read_csv(r"corpus.csv",encoding='latin-1')
 
-    output = round(prediction[0], 2)
+
+    sentences = Corpus['text'].values
+    y = Corpus['label'].values
+
+    sentences_train, sentences_test, y_train, y_test = train_test_split(
+    sentences, y, test_size=0.25, random_state=1000)
+
+    vectorizer = CountVectorizer()
+    vectorizer.fit(sentences_train)
+
+    X_train = vectorizer.transform(sentences_train)
+    X_test  = vectorizer.transform(sentences_test)
+
+
+    classifier = LogisticRegression()
+    classifier.fit(X_train, y_train)
+    score = classifier.score(X_test, y_test)
+
+    print("Accuracy:", score)
+    
+    text = request.form['text']
+    query = text
+    query = [query]
+    query = vectorizer.transform(query)
+
+    prediction = classifier.predict_proba(query)
+
+    output = prediction
 
     return render_template('index.html', prediction_text='The top innovator gets $ {}'.format(output))
 
@@ -28,7 +60,7 @@ def predict_api():
     For direct API calls trought request
     '''
     data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
+    prediction = classifier.predict_proba([np.array(query)])
 
     output = prediction[0]
     return jsonify(output)
