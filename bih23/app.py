@@ -20,9 +20,9 @@ def predict():
     '''
      this is where rendering results on HTML GUI
     '''
-        # Add the Data using pandas
-    Corpus = pd.read_csv(r"corpus.csv",encoding='latin-1')
-
+     # Add the Data using pandas
+    Corpus = pd.read_csv(r"tech.csv",encoding='latin-1')
+    print(Corpus)
 
     sentences = Corpus['text'].values
     y = Corpus['label'].values
@@ -45,6 +45,7 @@ def predict():
     
     text = request.form['text']
     query = text
+    query = query.lower()
     query = [query]
     query = vectorizer.transform(query)
 
