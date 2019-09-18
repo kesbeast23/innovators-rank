@@ -1,7 +1,7 @@
-const Offer = require("../models/offer"),
+const Offer = require("../models/Offer"),
     mongoose = require('mongoose'),
     validator = require('validator'),
-    axios = require('axios');
+    axios = require('axios'),
     ObjectId = mongoose.Types.ObjectId;
 
 exports.getAddJob = (req, res) => {
@@ -10,7 +10,7 @@ exports.getAddJob = (req, res) => {
     });
 };
 
-exports.postOffer = (req, res, next)  => {
+exports.postOffer = (req, res, next) => {
 
     const offer = new Offer({
         title: req.body.titleAW,
@@ -18,12 +18,12 @@ exports.postOffer = (req, res, next)  => {
         client: req.body.companyAW,
         industry: req.body.industry,
         description: req.body.jobDescription,
-        skillsRequired: req.body.technologies,
+        skillsRequired: req.body.skillsRequired,
         applyBy: req.body.applicationDeadline,
     });
 
     offer.save((err) => {
-        if(err) {
+        if (err) {
             return next(err);
         }
 
@@ -33,4 +33,3 @@ exports.postOffer = (req, res, next)  => {
         res.redirect("/jobs");
     });
 };
-

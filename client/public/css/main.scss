@@ -86,6 +86,15 @@ textarea {
   padding: 12px;
 }
 
+.trim-text {
+  display: inline-block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.2em;
+  line-height: 1.6em;
+}
+
 /*
 * Solves Bootstrap 4 issue
 * https://github.com/twbs/bootstrap/issues/25654

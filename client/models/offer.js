@@ -3,20 +3,23 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 
 const offerSchema = new mongoose.Schema({
     name: {
-        type: String,
-        unique: true
+        type: String
     },
     // userId: ObjectId,
     attachments: [{
         link: String
     }],
-    industry: String,
+    industry: [{
+        type: String
+    }],
     jobType: String,
     link: String,
     description: String,
-    applyBy: Date,
+    applyBy: String,
     client: String,
-    skillsRequired: String
+    skillsRequired: [{
+        type: String
+    }]
 }, {
     timestamps: true
 });

@@ -6,7 +6,7 @@ form(action='/account/profile', method='POST')
 	.form-group.row
 		label.col-md-3.col-form-label.font-weight-bold.text-right(for='email') Email
 		.col-md-7
-			input.form-control(type='email', name='email', id='email', value=user.email, autocomplete='email')
+			input.form-control(type='email', name='email', id='email', value=user.email, autocomplete='email', readonly)
 		.offset-sm-3.col-md-7.pl-3
 			if user.emailVerified
 				.text-success.font-italic

@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+
+    nav.col-md-10.ml-auto.mr-auto(aria-label='breadcrumb')
+        ol.breadcrumb
+            li.breadcrumb-item
+                a(href='/jobs') Jobs
+            li.breadcrumb-item.active(aria-current='page') #{job._id}
+    .col-md-10.d-flex.ml-auto.mr-auto
+        br
+        .card.p-4.d-block.m-4
+            h5.lead=job.name
+            .pb-2.pl-4
+                a(href='#')=job.client
+            hr
+            h6.text-uppercase.text-secondary.small.text-uppercase Industries
+            each industry in job.industry
+                .ml-3.badge.badge-info.badge-pill.font-weight-bold=industry
+            //- .pl-4.pt-2.pb-2.d-flex
+            h6.text-uppercase.text-secondary.small.text-uppercase.mt-2 Skill Requirements
+            each skill in job.skillsRequired
+                .ml-3.badge.badge-warning.badge-pill.font-weight-bold=skill 
+            p.mt-4 !{job.description.split('\n').join('<br/>')}
