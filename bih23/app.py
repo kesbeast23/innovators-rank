@@ -48,13 +48,12 @@ def predict():
     query = query.lower()
     query = [query]
     query = vectorizer.transform(query)
-    
-    prediction = classifier.predict([np.array(query)])
-   # prediction = classifier.predict_proba(query)
+
+    prediction = classifier.predict(query)
 
     output = prediction
 
-    return render_template('index.html', prediction_text='The top innovator scored {}'.format(output))
+    return render_template('index.html', prediction_text='The top innovator is {}'.format(output))
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
@@ -62,8 +61,7 @@ def predict_api():
     For direct API calls trought request
     '''
     data = request.get_json(force=True)
-    prediction = classifier.predict([np.array(query)])
-    #prediction = classifier.predict_proba([np.array(query)])
+    prediction = classifier.predict_proba([np.array(query)])
 
     output = prediction[0]
     return jsonify(output)
