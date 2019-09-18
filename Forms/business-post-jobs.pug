@@ -1,0 +1,33 @@
+form.d-flex.flex-column.justify-content-between(method='POST')
+  .form-group
+    label(for='jobTitle') Job Title
+    input.form-control#jobTitle(type='text', placeholder='Project X')
+  .form-group
+    label(for='jobDescription') Job Description
+    input#jobDescription(type='text', placeholder='Software Developer')
+  .form-group
+    label(for) Company/Organisation 
+    input#orgName(type='text', placeholder='Debswana')
+  .form-inline
+    label.my-1.mr-2(for='techStacks') Skills Required
+    select.custom-select.my-1.mr-sm-2#techStack(multiple)
+      option(selected) Nodejs
+      option(value='1') Flask
+      option(value='2') Tensorflow
+      option(value='3') Javascript
+      option(value='4') Flutter
+      option(value='5') Android
+      option(value='6') IOS
+      option(value='7') html/css
+      option(value='8') Mysql
+      option(value='9') Firebase
+      option(value='10') No Idea
+  .form-group
+    label(for) Problem Specification
+    textarea.form-control#orgName(rows='4', placeholder='break down the problem and outline the major challenges you want solved')
+  .form-group
+    label.my-1.mr-2(for='techStacks') Sallary
+    select.custom-select.my-1.mr-sm-2#teckStack
+      option(selected) Generous
+      option(value='1') Competitive
+      option(value='2') Negotiable
