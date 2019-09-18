@@ -1,5 +1,6 @@
 const Job = require("../models/developers/Job"),
     mongoose = require('mongoose'),
+    user = require("../models/User")
     validator = require('validator'),
     axios = require('axios');
     ObjectId = mongoose.Types.ObjectId;
@@ -42,6 +43,7 @@ exports.postJob = (req, res, next) => {
         return res.redirect('/account');
     }
 
+
     const job = new Job({
         title: req.body.titleAW,
         userId: new ObjectId(req.user._id),
@@ -66,10 +68,11 @@ exports.postJob = (req, res, next) => {
         });
     res.redirect("/account");
 
-    axios.post('http://locahost:6666', {
+    axios.post('http://locahost:5000/predict', {
         technologies: job.technologies
         }).then(function (response) {
-            job.update({"competency": response});
+            //job.update({"rank": response});
+            User.update({_id: req.user._id}, {"rank": response});
         }).catch(function (error) {
             req.flash('erros', {
             msg: 'Failed to Rank Project'

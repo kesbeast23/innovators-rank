@@ -18,7 +18,7 @@ exports.postOffer = (req, res, next)  => {
         client: req.body.companyAW,
         industry: req.body.industry,
         description: req.body.jobDescription,
-        skillsRequired: req.body.technologies,
+        skillsRequired: req.body.skillsRequired,
         applyBy: req.body.applicationDeadline,
     });
 

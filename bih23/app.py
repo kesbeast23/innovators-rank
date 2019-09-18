@@ -49,11 +49,13 @@ def predict():
     query = [query]
     query = vectorizer.transform(query)
 
-    prediction = classifier.predict(query)
+    prediction = classifier.predict_proba(query)
 
-    output = prediction
+    output = max(list(prediction))
 
-    return render_template('index.html', prediction_text='The top innovator is {}'.format(output))
+    #return render_template('index.html', prediction_text='The top innovator is {}'.format(output))
+    return jsonify({"rank": output})
+
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
