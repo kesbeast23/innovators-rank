@@ -169,6 +169,7 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 app.get('/jobs', jobsController.getJobs);
+app.post('/jobs', jobsController.postJob);
 app.get('/jobs/:id', jobsController.getJob);
 app.get('/jobs/add/new', jobsController.getAddJob);
 

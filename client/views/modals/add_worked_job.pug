@@ -1,0 +1,59 @@
+
+.modal(tabindex='-1', role='dialog' id="addWorkedJobsModal" aria-labelledby="addWorkedJobsModalLabel" aria-hidden="true")
+    .modal-dialog.modal-lg(role='document')
+        form.modal-content(method="post", action="/jobs")
+            input(type='hidden', name='_csrf', value=_csrf)
+            .modal-header
+                h5.modal-title(id="addWorkedJobsModalLabel") Add Your Work Experience
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+            .modal-body
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='titleAW' ) *Title
+                    .col-md-7
+                        input.form-control(type='text', name='titleAW', id='titleAW' required)
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='companyAW' ) *Company
+                    .col-md-7
+                        input.form-control(type='text', name='companyAW', id='companyAW' required)
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='referenceContact' ) *Reference Contact
+                    .col-md-7
+                        input.form-control(type='text', name='referenceContact', id='referenceContact', required)
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='technologies') Technology Stack
+                    .col-md-7
+                        select.form-control.d-none#technologies(name="technologies" multiple="multiple", required)
+                            option(value='NodeJS') NodeJS
+                            option(value='Flask') Flask
+                            option(value='Tensorflow') Tensorflow
+                            option(value='Javascript') Javascript
+                            option(value='Flutter') Flutter
+                            option(value='Kotlin') Kotlin
+                            option(value='Android') Android
+                            option(value='IOS') IOS
+                            option(value='HTML/CSS') HTML/CSS
+                            option(value='JAVASCRIPT') JAVASCRIPT
+                            option(value='MySQL') MySQL
+                            option(value='Firebase') Firebase
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='locationAW' ) *Location
+                    .col-md-7
+                        input.form-control(type='text', name='locationAW', id='locationAW' required)
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='projectStart' ) *Start Date:
+                    .col-md-7
+                        input.form-control(type='date', name='projectStart' required)
+                .form-group.row
+                    .col-md-3
+                    .col-md-7
+                        input.form-check-input(id="stillWorkHere" name="stillWorkHere" type='checkbox')
+                        label.form-check-label(for='stillWorkHere').
+                            I still work here
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='projectEnd') End Date:
+                    .col-md-7
+                        input.form-control#projectEnd(type='date', name='projectEnd')
+            .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                button.btn.btn-primary(type='submit') Submit
