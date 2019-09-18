@@ -1,5 +1,5 @@
 
-.modal(tabindex='-1', role='dialog' id="addWorkedJobsModal" aria-labelledby="addWorkedJobsModalLabel" aria-hidden="true")
+.modal(tabindex='-1', role='dialog' id="addJobsModal" aria-labelledby="addWorkedJobsModalLabel" aria-hidden="true")
     .modal-dialog.modal-lg(role='document')
         form.modal-content(method="post", action="/jobs")
             input(type='hidden', name='_csrf', value=_csrf)
