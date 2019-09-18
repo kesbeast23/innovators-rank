@@ -39,6 +39,7 @@ const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const ranksController = require("./controllers/ranks");
 const contactController = require('./controllers/contact');
+const jobOfferController = require('./controllers/job');
 
 /**
  * API keys and Passport configuration.
@@ -173,7 +174,11 @@ app.get('/jobs', jobsController.getJobs);
 app.post('/jobs', jobsController.postJob);
 app.get('/jobs/:id', jobsController.getJob);
 app.get('/jobs/add/new', jobsController.getAddJob);
+<<<<<<< HEAD
 app.get('/ranks', ranksController.getRankings);
+=======
+app.post('/job_offer', jobOfferController.postOffer);
+>>>>>>> added job offer form
 
 /**
  * API examples routes.

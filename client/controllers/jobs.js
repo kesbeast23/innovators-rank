@@ -1,6 +1,7 @@
 const Job = require("../models/developers/Job"),
     mongoose = require('mongoose'),
     validator = require('validator'),
+    axios = require('axios');
     ObjectId = mongoose.Types.ObjectId;
 /**
  * GET /
@@ -26,18 +27,15 @@ exports.getAddJob = (req, res) => {
 
 exports.postJob = (req, res, next) => {
     const validationErrors = [];
-    if (validator.isEmpty(req.body.titleAW)) validationErrors.push({
+    if (validator.isEmpty(req.body.jobName)) validationErrors.push({
+        msg: 'Please enter a valid name.'
+    });
+    if (validator.isEmpty(req.body.jobTitle)) validationErrors.push({
         msg: 'Please enter a valid title.'
     });
     if (validator.isEmpty(req.body.companyAW)) validationErrors.push({
         msg: 'Please enter a valid company.'
     });
-    if (validator.isEmpty(req.body.locationAW)) validationErrors.push({
-        msg: 'Please enter a valid location.'
-    });
-    // if (!validator.isEmpty(req.body.projectStart)) validationErrors.push({
-    //     msg: 'Please enter a valid project start date.'
-    // });
 
     if (validationErrors.length) {
         req.flash('errors', validationErrors);
@@ -66,6 +64,17 @@ exports.postJob = (req, res, next) => {
         req.flash('success', {
             msg: 'Jobs updated.'
         });
-        res.redirect("/account");
+    res.redirect("/account");
+
+    axios.post('http://locahost:6666', {
+        technologies: job.technologies
+        }).then(function (response) {
+            job.update({"competency": response});
+        }).catch(function (error) {
+            req.flash('erros', {
+            msg: 'Failed to Rank Project'
+            });
+        });
+
     });
 };

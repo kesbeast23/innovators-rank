@@ -1,16 +1,16 @@
 form.d-flex.flex-column.justify-content-between(method='POST')
   .form-group
     label(for='bioTextArea') Project Name
-    input.form-control(type='text', placeholder='Enter name of project')
+    input.form-control(type='text', placeholder='Enter name of project' name="projectName")
   .form-group
     label(for='url') Enter link to project
-    input#projectUrl(type='url', name='url', placeholder='https://example.com', pattern='https://.*', size='30', required)
+    input#projectUrl(type='url', name='projectUrl', placeholder='https://example.com', pattern='https://.*', size='30', required)
   .form-group
     label(for) Project Description
-    textarea.form-control#projectDescription(rows='3', placeholder='tell us highlights about your work')
+    textarea.form-control#projectDescription(rows='3', placeholder='tell us highlights about your work', name="description")
   .form-inline
     label.my-1.mr-2(for='inlineFormCustomSelectPref') Technology Stack
-    select.custom-select.my-1.mr-sm-2#techStack(multiple)
+    select.custom-select.my-1.mr-sm-2#techStack(name="technologies", multiple)
       option(selected) Nodejs
       option(value='1') Flask
       option(value='2') Tensorflow
@@ -28,9 +28,9 @@ form.d-flex.flex-column.justify-content-between(method='POST')
     input#deliveryDate(type='date', name='trip-start', value='2018-07-22', min='2000-01-01', max='2019-12-31')
   .form-group
     label(for='AffiliationDescription') Client Name
-    input.form-control#clientName(type='text', placeholder='Company/Organisation')
+    input.form-control#clientName(type='text', placeholder='Company/Organisation', name="clientNamane")
   .form-group
     .form-group
       label(for='exampleInputEmail1') Client Email address
-      input.form-control#exampleInputEmail1(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+      input.form-control#exampleInputEmail1(type='email', aria-describedby='emailHelp', placeholder='Enter email', name="clientEmail")
       small#emailHelp.form-text.text-muted We may contact the client if we have any queries

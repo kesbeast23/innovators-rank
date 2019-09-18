@@ -1,31 +1,53 @@
-extends layout
 
-block content
-    h1.font-weight-bold Job Title
+.modal(tabindex='-1', role='dialog' id="addWorkedJobsModal" aria-labelledby="addWorkedJobsModalLabel" aria-hidden="true")
+    .modal-dialog.modal-lg(role='document')
+        form.modal-content(method="post", action="/job_offer")
+            input(type='hidden', name='_csrf', value=_csrf)
+            .modal-header
+                h5.modal-title(id="addWorkedJobsModalLabel") Add Your Work Experience
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+            .modal-body
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='jobName') Job Title
+                    .col-md-7
+                        input.form-control(type='text', name='jobName', id='jobName' required)
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='titleType') Job Type
+                    .col-md-7
+                        input.form-control(type='text', name='jobType', id='jobType' required)
 
-    .card.p-4.d-block.m-4
-        h5 Senior Java Developer Wanted
-        .pb-2.pl-4
-            a(href="/jobs?company=Debswana") Debswana Mining Company
-        h6.text-uppercase.text-secondary.small Industry | 
-            | Mining
-        .pl-4.pt-2.pb-2.d-flex
-            .badge.badge-info.badge-pill.small.font-weight-bold Java
-            .badge.badge-info.ml-2.badge-pill.small.font-weight-bold SQL
-            .badge.badge-info.ml-2.badge-pill.small.font-weight-bold Excel
-        p It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes.
+                include industry
 
-        | Whatever your needs, there will be a freelancer to get it done: from web design, mobile app development, virtual assistants, product manufacturing, and graphic design (and a whole lot more).
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='companyAW') Organisation/Company
+                    .col-md-7
+                        input.form-control(type='text', name='companyAW', id='companyAW' required)
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='technologies') Skills Required
+                    .col-md-7
+                        select.form-control.d-none#skillsRequired(name="skillsRequired" multiple="multiple", required)
+                            option(value='NodeJS') NodeJS
+                            option(value='Flask') Flask
+                            option(value='Tensorflow') Tensorflow
+                            option(value='Javascript') Javascript
+                            option(value='Flutter') Flutter
+                            option(value='Kotlin') Kotlin
+                            option(value='Android') Android
+                            option(value='IOS') IOS
+                            option(value='HTML/CSS') HTML/CSS
+                            option(value='JAVASCRIPT') JAVASCRIPT
+                            option(value='MySQL') MySQL
+                            option(value='Firebase') Firebase
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='jobDescription') Job Description
+                    .col-md-7
+                        textarea.form-control#bio(name="jobDescription", rows='4', placeholder='Break up the problem into manageble tasks')
 
-        | With secure payments and thousands of reviewed professionals to choose from, Freelancer.com is the simplest and safest way to get work done online.
-
-        | What's great about it?
-        | You only have to pay for work when it has been completed and you're 100% satisfied.
-        | You'll receive free bids from our talented freelancers within seconds.
-        | We're always here to help. Our support consists of real people who are available 24/7.
-        | You can live chat with your freelancers to get constant updates on the progress of your work.
-        | Keep up-to-date and on-the-go with our time tracker, and mobile app.
-        | Find professionals you can trust by browsing their samples of previous work and reading their profile reviews.
-        //- hr
-        //- h4 Interested
-        //- .badge.badge-info.badge-pill.small Daniel Dube
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='projectEnd') Application Deadline:
+                    .col-md-7
+                        input.form-control#applicationDeadline(type='date', name='applicationDeadline')
+            .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                button.btn.btn-primary(type='submit') Submit

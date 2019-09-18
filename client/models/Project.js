@@ -11,6 +11,9 @@ const projectSchema = new mongoose.Schema({
     description: String,
     projectCompletionDate: Date,
     client: String,
+    Competency: [{
+        skill: Number
+    }],
     clientRating: Number,
 }, {
     timestamps: true

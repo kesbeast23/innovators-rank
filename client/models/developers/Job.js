@@ -8,6 +8,7 @@ const jobSchema = new mongoose.Schema({
     link: String,
     description: String,
     location: String,
+    competency: [Number],
     projectDates: {
         projectStart: String,
         projectEnd: String

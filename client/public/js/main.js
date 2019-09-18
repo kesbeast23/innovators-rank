@@ -9,4 +9,6 @@ $(document).ready(() => {
     }
   });
   $('#technologies').multiselect();
+  $('#skillsRequired').multiselect();
+  $('#industry').multiselect();
 });
