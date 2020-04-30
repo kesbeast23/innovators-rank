@@ -41,7 +41,7 @@
     "express-status-monitor": "^1.2.6",
     "fbgraph": "^1.4.4",
     "googleapis": "^42.0.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "lusca": "^1.6.1",
     "mailchecker": "^3.2.35",
